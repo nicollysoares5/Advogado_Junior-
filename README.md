@@ -1,46 +1,56 @@
-# ⚖️ IA do Advogado Júnior 🤖
+# ⚖️ IA do Advogado Júnior — Versão Estética Aprimorada 🤖
 
-**Protótipo interativo** desenvolvido em **Streamlit**, criado para auxiliar estudantes e profissionais do Direito em tarefas como:
-- Resumo de decisões e textos jurídicos;  
-- Melhoria e formalização de petições;  
-- Geração de minutas completas;  
-- Consulta rápida de termos jurídicos.
+Um aplicativo jurídico interativo em **Streamlit**, criado para auxiliar estudantes e profissionais do Direito com tarefas cotidianas como:
+- Resumo e aperfeiçoamento de textos jurídicos;  
+- Geração de petições automáticas;  
+- Consulta de termos e conceitos jurídicos.
 
 ---
 
-## 🚀 Funcionalidades Principais
+## 🏛️ Design e Identidade Visual
+
+O novo layout segue o estilo **clássico jurídico**, combinando elegância e clareza:
+
+🎨 **Cores:** Azul-marinho e branco  
+🧭 **Layout:** Menu lateral fixo  
+🪶 **Fonte:** Georgia (tradicional e formal)  
+💼 **Detalhes:** Cards com sombra, ícones, gradiente sutil e sidebar institucional  
+
+---
+
+## 🚀 Funcionalidades
 
 ### 📝 Assistente Jurídico
-Cole um texto (ementa, decisão, parecer, petição etc.) e escolha uma das opções:
-- **Gerar resumo**: cria um resumo automático.  
-- **Melhorar texto**: reformula com linguagem mais formal.  
-- **Transformar em petição**: gera minuta padrão com endereçamento, fatos, fundamentos e pedidos.  
+Cole um texto (ementa, decisão, parecer ou petição) e escolha:
+- **🔍 Resumir** – Gera um resumo automático.  
+- **✍️ Melhorar Texto** – Reformula com linguagem mais formal e clara.  
+- **📑 Transformar em Petição** – Gera uma minuta completa com estrutura jurídica.  
 
 Os resultados podem ser baixados em **.docx** e **.pdf**.
 
 ---
 
 ### 📄 Gerador de Petições
-Formulário que gera uma **petição completa** a partir de informações simples:
-- Tipo de ação (dano moral, cobrança, mandado de segurança etc.);
-- Dados das partes;
-- Fatos e pedidos.
+Formulário que gera petições completas com base em informações básicas:
+- Tipo de ação  
+- Dados das partes  
+- Fatos e pedidos  
 
-Gera o texto final formatado e pronto para download.
+Produz o texto final formatado e disponível para download.
 
 ---
 
 ### 📚 Dicionário Jurídico
-Busca inteligente que fornece definições e exemplos de termos jurídicos comuns.  
-Se o termo não estiver no dicionário local, o app fornece uma explicação genérica com contexto jurídico.
+Busca termos e conceitos jurídicos comuns.  
+Se o termo não estiver na base local, o app oferece uma explicação genérica e orientações para pesquisa em doutrina.
 
 ---
 
 ## 🧠 Futuras Melhorias
-- Integração com **OpenAI API** (para resumos e textos de alta precisão).  
-- Acesso a **bases reais de jurisprudência** (STF/STJ).  
-- Geração automática de petições baseadas em casos similares.  
-- Interface com **modo escuro** e design mais moderno.
+- Integração com **OpenAI API** (para resumos e textos de alta qualidade).  
+- Acesso a **bases reais de jurisprudência (STF/STJ)**.  
+- Geração de petições com fundamentação automática.  
+- Tema escuro alternável e salvamento de histórico de textos.  
 
 ---
 
@@ -55,7 +65,3 @@ source venv/bin/activate   # Linux/macOS
 venv\Scripts\activate      # Windows
 pip install -r requirements.txt
 streamlit run app.py
-streamlit
-pandas
-python-docx
-reportlab
