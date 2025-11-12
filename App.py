@@ -1,4 +1,4 @@
-# app.py — IA do Advogado Júnior (versão estética aprimorada)
+# app.py — IA do Advogado Júnior (versão final aprimorada)
 import streamlit as st
 from io import BytesIO
 from docx import Document
@@ -59,12 +59,6 @@ div.stButton > button {
 div.stButton > button:hover {
     background-color: #204d94;
     color: #fff;
-}
-
-/* Caixas de texto */
-textarea, input, select {
-    border: 1px solid #ccc !important;
-    border-radius: 6px !important;
 }
 
 /* Cards */
@@ -157,6 +151,16 @@ def create_pdf_from_text(title, text):
     buf.seek(0)
     return buf
 
+# ----------- CABEÇALHO COM LOGO -----------
+st.markdown("""
+    <div style="background: linear-gradient(90deg, #0a1e3d, #173a6d);
+                padding: 1rem; text-align:center; border-radius:10px; margin-bottom:20px;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Scale_of_justice.png"
+             width="80" style="margin-bottom:10px;">
+        <h1 style="color:white; font-family:'Georgia';">IA do Advogado Júnior ⚖️</h1>
+    </div>
+""", unsafe_allow_html=True)
+
 # ----------- SIDEBAR -----------
 st.sidebar.image("https://upload.wikimedia.org/wikipedia/commons/9/9a/Scale_of_justice.png", width=90)
 st.sidebar.title("IA do Advogado Júnior ⚖️")
@@ -241,7 +245,6 @@ elif menu == "Dicionário Jurídico":
     st.markdown("<h1>📚 Dicionário Jurídico</h1>", unsafe_allow_html=True)
     termo = st.text_input("Digite o termo jurídico:", placeholder="Ex.: litisconsórcio, coisa julgada, repercussão geral")
 
-    # Dicionário ampliado
     defs = {
         "ação": "Direito de provocar a jurisdição para a tutela de um direito (CPC, art. 2º).",
         "agravo": "Recurso cabível contra decisão interlocutória (CPC, art. 1.015).",
@@ -288,10 +291,19 @@ elif menu == "Dicionário Jurídico":
         elif termo_limpo in defs:
             st.success(defs[termo_limpo])
         else:
-            # busca aproximada
             similares = [k for k in defs.keys() if termo_limpo in k or k in termo_limpo]
             if similares:
                 st.info(f"🔎 Resultado semelhante encontrado: **{similares[0]}**")
                 st.success(defs[similares[0]])
             else:
-                st.warning(f"O termo **'{termo}'** não foi encontrado no dicionário local.
+                st.warning(f"O termo **'{termo}'** não foi encontrado no dicionário local.")
+                st.markdown(
+                    f"""
+                    <div style='background-color:#eef3fb;padding:10px;border-radius:8px;'>
+                    <b>Explicação genérica:</b> O termo <i>{termo}</i> refere-se a um conceito jurídico 
+                    possivelmente relacionado a princípios, normas ou procedimentos legais. 
+                    Consulte o Código Civil, o CPC ou a Constituição Federal para mais detalhes.
+                    </div>
+                    """,
+                    unsafe_allow_html=True
+                )
