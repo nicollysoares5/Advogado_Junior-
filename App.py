@@ -240,15 +240,58 @@ __________________________________
 elif menu == "Dicionário Jurídico":
     st.markdown("<h1>📚 Dicionário Jurídico</h1>", unsafe_allow_html=True)
     termo = st.text_input("Digite o termo jurídico:", placeholder="Ex.: litisconsórcio, coisa julgada, repercussão geral")
+
+    # Dicionário ampliado
     defs = {
-        "litisconsórcio": "Situação em que mais de uma pessoa figura em um mesmo polo da relação processual (CPC, art. 113).",
+        "ação": "Direito de provocar a jurisdição para a tutela de um direito (CPC, art. 2º).",
+        "agravo": "Recurso cabível contra decisão interlocutória (CPC, art. 1.015).",
+        "amparo legal": "Fundamentação jurídica que dá base ao pedido formulado.",
+        "apelação": "Recurso contra sentença de primeiro grau (CPC, art. 1.009).",
+        "arquivamento": "Encerramento do processo sem julgamento de mérito.",
         "coisa julgada": "Qualidade da decisão judicial que a torna imutável e indiscutível (CPC, art. 502).",
-        "repercussão geral": "Filtro de admissibilidade do STF para recursos extraordinários (CF, art. 102, §3º)."
+        "competência": "Poder conferido a um órgão jurisdicional para processar e julgar determinadas causas.",
+        "constitucionalidade": "Conformidade de um ato ou norma com a Constituição.",
+        "contraditório": "Direito das partes de se manifestar sobre todos os atos do processo (CF, art. 5º, LV).",
+        "decisão interlocutória": "Ato judicial que resolve questão incidente, sem encerrar o processo.",
+        "denúncia": "Peça acusatória do Ministério Público que dá início à ação penal pública.",
+        "despacho": "Ato do juiz que impulsiona o processo, sem conteúdo decisório.",
+        "dolo": "Vontade consciente de praticar um ato ilícito.",
+        "erro de direito": "Equívoco na aplicação ou interpretação da lei.",
+        "exceção": "Meio de defesa processual que não impugna o mérito da ação.",
+        "fato gerador": "Situação prevista em lei que dá origem à obrigação tributária.",
+        "foro": "Local competente para julgamento de determinada causa.",
+        "habeas corpus": "Remédio constitucional para proteger o direito de locomoção (CF, art. 5º, LXVIII).",
+        "honorários": "Verba devida ao advogado pela prestação de serviços jurídicos.",
+        "impugnação": "Manifestação contrária a um pedido ou alegação da parte adversa.",
+        "inconstitucionalidade": "Incompatibilidade de uma norma com a Constituição Federal.",
+        "jurisprudência": "Conjunto de decisões reiteradas dos tribunais sobre determinado tema.",
+        "litisconsórcio": "Situação em que mais de uma pessoa figura em um mesmo polo da relação processual (CPC, art. 113).",
+        "mandado de segurança": "Ação constitucional para proteger direito líquido e certo contra ato ilegal de autoridade.",
+        "nulidade": "Defeito processual que acarreta a invalidade do ato.",
+        "ônus da prova": "Encargo de demonstrar a veracidade dos fatos alegados (CPC, art. 373).",
+        "petição inicial": "Documento que dá início ao processo judicial (CPC, art. 319).",
+        "prescrição": "Perda do direito de ação em razão do decurso do tempo.",
+        "prevenção": "Fixação da competência em razão da anterior distribuição de outro processo.",
+        "recurso": "Instrumento jurídico usado para impugnar decisões judiciais.",
+        "repercussão geral": "Filtro de admissibilidade do STF para recursos extraordinários (CF, art. 102, §3º).",
+        "res judicata": "Expressão em latim equivalente a 'coisa julgada'.",
+        "sentença": "Ato do juiz que põe fim ao processo, julgando ou não o mérito (CPC, art. 203, §1º).",
+        "sucumbência": "Encargo da parte vencida de arcar com custas e honorários.",
+        "tutela de urgência": "Medida liminar concedida para evitar dano grave ou de difícil reparação (CPC, art. 300).",
+        "usucapião": "Aquisição de propriedade pela posse prolongada, com requisitos legais.",
     }
+
     if st.button("Buscar definição"):
-        if termo.lower() in defs:
-            st.success(defs[termo.lower()])
-        elif termo.strip() == "":
+        termo_limpo = termo.strip().lower()
+        if termo_limpo == "":
             st.info("Digite um termo para buscar.")
+        elif termo_limpo in defs:
+            st.success(defs[termo_limpo])
         else:
-            st.warning(f"Termo '{termo}' não encontrado no dicionário local. Consulte doutrina ou legislação específica.")
+            # busca aproximada
+            similares = [k for k in defs.keys() if termo_limpo in k or k in termo_limpo]
+            if similares:
+                st.info(f"🔎 Resultado semelhante encontrado: **{similares[0]}**")
+                st.success(defs[similares[0]])
+            else:
+                st.warning(f"O termo **'{termo}'** não foi encontrado no dicionário local.
