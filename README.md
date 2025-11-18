@@ -65,3 +65,12 @@ source venv/bin/activate   # Linux/macOS
 venv\Scripts\activate      # Windows
 pip install -r requirements.txt
 streamlit run app.py
+📚 Fontes dos Dados Jurídicos
+O aplicativo utiliza definições extraídas de bases oficiais do Direito brasileiro.
+As fontes utilizadas são:
+Glossário Jurídico do Conselho Nacional de Justiça (CNJ)
+Glossário Jurídico do Superior Tribunal de Justiça (STJ)
+Glossário Jurídico da Câmara dos Deputados
+Código de Processo Civil (Lei 13.105/2015)
+Constituição Federal de 1988
+O arquivo dicionario_juridico.csv, presente no repositório, contém todas as definições e respectivas fontes, conforme exigido no trabalho.
