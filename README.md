@@ -74,3 +74,9 @@ Glossário Jurídico da Câmara dos Deputados
 Código de Processo Civil (Lei 13.105/2015)
 Constituição Federal de 1988
 O arquivo dicionario_juridico.csv, presente no repositório, contém todas as definições e respectivas fontes, conforme exigido no trabalho.
+📚 Fontes dos Dados
+As definições de termos jurídicos utilizadas no aplicativo foram extraídas integralmente do:
+Tribunal de Justiça de São Paulo (TJSP)
+Vocabulário Jurídico dos Juizados Especiais
+https://www.tjsp.jus.br/JuizadosEspeciais/JuizadosEspeciais/VocabularioJuridico
+O arquivo glossario_consolidado.csv contém os termos originais e está incluído no repositório, conforme exigido para uso de dados reais no projeto.
