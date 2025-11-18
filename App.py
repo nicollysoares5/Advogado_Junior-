@@ -307,7 +307,7 @@ elif menu == "Dicionário Jurídico":
                     """,
                     unsafe_allow_html=True
                 )
-# --- DICIONÁRIO JURÍDICO VIA CSV (requisito do professor) ---
+# --- DICIONÁRIO JURÍDICO VIA CSV ---
 import pandas as pd
 
 df_dic = pd.read_csv("dicionario_juridico.csv")
