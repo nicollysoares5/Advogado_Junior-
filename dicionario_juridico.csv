@@ -1,37 +1,25 @@
-termo	definicao
-ação	Direito de provocar a jurisdição para tutela de um direito — Fonte: Glossário Jurídico da Câmara dos Deputados.
-agravo	Recurso utilizado contra decisões interlocutórias — Fonte: STJ (Glossário Jurídico).
-amparo legal	Base normativa que sustenta o pedido jurídico — Fonte: CNJ (Glossário).
-apelação	 Recurso cabível contra sentença — Fonte: CPC, art. 1.009.
-arquivamento	Encerramento do processo sem julgamento de mérito — Fonte: CNJ.
-coisa julgada	Torna imutável e indiscutível a decisão judicial — Fonte: CPC, art. 502.
-competência	Poder do órgão jurisdicional para julgar determinada causa — Fonte: CF/88 e CPC.
-constitucionalidade	Conformidade de um ato com a Constituição — Fonte: Glossário STJ.
-contraditório	Direito das partes de participarem do processo — Fonte: CF/88, art. 5º, LV.
-decisão interlocutória	Ato judicial que resolve questão incidental — Fonte: STJ (Glossário Jurídico).
-denúncia	Peça acusatória que inicia a ação penal pública — Fonte: CPP.
-despacho	Ato judicial de mero expediente — Fonte: CNJ.
-dolo	Vontade consciente de produzir resultado ilícito — Fonte: Código Penal.
-erro de direito	Erro na interpretação ou aplicação da lei — Fonte: STJ.
-exceção	Meio de defesa processual sem análise de mérito — Fonte: Glossário STJ.
-fato gerador	Situação que origina a obrigação tributária — Fonte: Código Tributário Nacional.
-foro	Local onde deve tramitar e ser julgada a causa — Fonte: Glossário Jurídico da Câmara.
-habeas corpus	Ação constitucional para proteger a liberdade — Fonte: CF/88, art. 5º, LXVIII.
-honorários	Verba paga ao advogado pela prestação de serviços — Fonte: Estatuto da OAB.
-impugnação	Oposição formal a pedido ou argumento da parte contrária — Fonte: CNJ.
-inconstitucionalidade	Incompatibilidade entre norma e Constituição Federal — Fonte: STF.
-jurisprudência	Decisões reiteradas dos tribunais sobre um mesmo tema — Fonte: STJ.
-litisconsórcio	Pluralidade de partes no polo ativo ou passivo — Fonte: CPC, art. 113.
-mandado de segurança	Ação para proteger direito líquido e certo — Fonte: CF/88.
-nulidade	Defeito que invalida ato processual — Fonte: CPC.
-ônus da prova	Encargo de provar alegações próprias — Fonte: CPC, art. 373.
-petição inicial	Peça que inaugura o processo judicial — Fonte: CPC, art. 319.
-prescrição	Perda do direito de exigir judicialmente um direito — Fonte: Código Civil.
-prevenção	Critério que fixa competência por distribuição anterior — Fonte: CPC.
-recurso	Instrumento para revisar decisão judicial — Fonte: CPC.
-repercussão geral	Filtro do STF para temas constitucionais — Fonte: CF/88, art. 102, §3º.
-res judicata	Termo em latim equivalente a coisa julgada — Fonte: STJ.
-sentença	Ato do juiz que encerra o processo com ou sem mérito — Fonte: CPC, art. 203.
-sucumbência	Ônus imposto ao vencido para pagar custas e honorários — Fonte: CPC.
-tutela de urgência	Medida liminar concedida para evitar dano grave — Fonte: CPC, art. 300.
-usucapião	Aquisição de propriedade pela posse prolongada — Fonte: Código Civil.
+termo,definicao
+Acórdão,"Decisão proferida por um colegiado de magistrados (câmara, turma, seção, órgão especial, plenário etc.) em um processo judicial."
+Agravo de Instrumento,"Recurso utilizado para contestar decisões interlocutórias (que não encerram o processo) proferidas por um juiz de primeira instância."
+Coisa Julgada,"Qualidade de uma decisão judicial que a torna imutável e indiscutível, não podendo mais ser modificada por recursos."
+Contrato,"Acordo de duas ou mais vontades, na conformidade da ordem jurídica, destinado a estabelecer uma regulamentação de interesses entre as partes com o escopo de adquirir, modificar ou extinguir relações jurídicas de natureza patrimonial."
+Dano Moral,"Lesão a direitos da personalidade, como a honra, a imagem, a intimidade, a vida privada, que causa sofrimento, dor, ou humilhação à vítima. A reparação é feita por meio de uma compensação em dinheiro."
+Decadência,"Perda de um direito potestativo pela inércia de seu titular, quando não exercido no prazo previsto em lei para seu exercício."
+Domicílio,"Lugar onde a pessoa estabelece a sua residência com ânimo definitivo. É o centro de suas atividades jurídicas e onde responde por suas obrigações (Código Civil, art. 70)."
+Habeas Corpus,"Ação constitucional destinada a proteger o direito de liberdade de locomoção de um indivíduo, quando este se encontra ameaçado ou violado por ilegalidade ou abuso de poder."
+Jurisprudência,"Conjunto de decisões e interpretações das leis feitas pelos tribunais superiores, que servem como referência para casos futuros semelhantes."
+Liminar,"Decisão provisória concedida no início de um processo para garantir um direito de forma urgente, antes do julgamento final da causa."
+Mandado de Segurança,"Ação constitucional utilizada para proteger direito líquido e certo que não seja amparado por habeas corpus ou habeas data, contra ato ilegal de autoridade pública."
+Negócio Jurídico,"Ato de autonomia privada com a finalidade de produzir efeitos no campo do direito, como criar, modificar ou extinguir direitos e obrigações (ex: contratos, testamentos)."
+Obrigação,"Vínculo jurídico pelo qual uma pessoa (devedor) fica sujeita a realizar uma prestação (dar, fazer ou não fazer algo) em favor de outra (credor)."
+Petição Inicial,"Peça escrita que dá início a um processo judicial, na qual o autor apresenta sua causa de pedir e seus pedidos ao juiz."
+Posse,"Exercício, pleno ou não, de algum dos poderes inerentes à propriedade. É a visibilidade do domínio, a exteriorização da propriedade (Código Civil, art. 1.196)."
+Prescrição,"Perda da pretensão de reparação de um direito violado, em razão do decurso do tempo. Atinge o direito de ação, mas não o direito em si."
+Propriedade,"Direito real que confere a seu titular a faculdade de usar, gozar e dispor de um bem, e o direito de reavê-lo do poder de quem quer que injustamente o possua ou detenha (Código Civil, art. 1.228)."
+Recurso Especial,"Recurso direcionado ao Superior Tribunal de Justiça (STJ) para questionar decisões de outros tribunais que contrariem lei federal."
+Recurso Extraordinário,"Recurso direcionado ao Supremo Tribunal Federal (STF) para discutir questões que violem diretamente a Constituição Federal."
+Sentença,"Ato pelo qual o juiz de primeira instância decide o mérito da causa, pondo fim ao processo naquela fase."
+Trânsito em Julgado,"Expressão usada para indicar que uma decisão judicial se tornou definitiva, não cabendo mais nenhum tipo de recurso."
+Tutela de Urgência,"Medida concedida pelo juiz para proteger um direito que corre risco de dano irreparável ou de difícil reparação, antes da decisão final."
+Usucapião,"Modo de aquisição da propriedade de um bem (móvel ou imóvel) pela posse contínua, mansa e pacífica, por um determinado período de tempo, cumprindo os requisitos legais."
+
