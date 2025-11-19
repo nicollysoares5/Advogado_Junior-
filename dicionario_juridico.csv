@@ -1,37 +1,37 @@
-termo,definicao
-ação,"Direito de provocar a jurisdição para tutela de um direito — Fonte: Glossário Jurídico da Câmara dos Deputados."
-agravo,"Recurso utilizado contra decisões interlocutórias — Fonte: STJ (Glossário Jurídico)."
-amparo legal,"Base normativa que sustenta o pedido jurídico — Fonte: CNJ (Glossário)."
-apelação,"Recurso cabível contra sentença — Fonte: CPC, art. 1.009."
-arquivamento,"Encerramento do processo sem julgamento de mérito — Fonte: CNJ."
-coisa julgada,"Torna imutável e indiscutível a decisão judicial — Fonte: CPC, art. 502."
-competência,"Poder do órgão jurisdicional para julgar determinada causa — Fonte: CF/88 e CPC."
-constitucionalidade,"Conformidade de um ato com a Constituição — Fonte: Glossário STJ."
-contraditório,"Direito das partes de participarem do processo — Fonte: CF/88, art. 5º, LV."
-decisão interlocutória,"Ato judicial que resolve questão incidental — Fonte: STJ (Glossário Jurídico)."
-denúncia,"Peça acusatória que inicia a ação penal pública — Fonte: CPP."
-despacho,"Ato judicial de mero expediente — Fonte: CNJ."
-dolo,"Vontade consciente de produzir resultado ilícito — Fonte: Código Penal."
-erro de direito,"Erro na interpretação ou aplicação da lei — Fonte: STJ."
-exceção,"Meio de defesa processual sem análise de mérito — Fonte: Glossário STJ."
-fato gerador,"Situação que origina a obrigação tributária — Fonte: Código Tributário Nacional."
-foro,"Local onde deve tramitar e ser julgada a causa — Fonte: Glossário Jurídico da Câmara."
-habeas corpus,"Ação constitucional para proteger a liberdade — Fonte: CF/88, art. 5º, LXVIII."
-honorários,"Verba paga ao advogado pela prestação de serviços — Fonte: Estatuto da OAB."
-impugnação,"Oposição formal a pedido ou argumento da parte contrária — Fonte: CNJ."
-inconstitucionalidade,"Incompatibilidade entre norma e Constituição Federal — Fonte: STF."
-jurisprudência,"Decisões reiteradas dos tribunais sobre um mesmo tema — Fonte: STJ."
-litisconsórcio,"Pluralidade de partes no polo ativo ou passivo — Fonte: CPC, art. 113."
-mandado de segurança,"Ação para proteger direito líquido e certo — Fonte: CF/88."
-nulidade,"Defeito que invalida ato processual — Fonte: CPC."
-ônus da prova,"Encargo de provar alegações próprias — Fonte: CPC, art. 373."
-petição inicial,"Peça que inaugura o processo judicial — Fonte: CPC, art. 319."
-prescrição,"Perda do direito de exigir judicialmente um direito — Fonte: Código Civil."
-prevenção,"Critério que fixa competência por distribuição anterior — Fonte: CPC."
-recurso,"Instrumento para revisar decisão judicial — Fonte: CPC."
-repercussão geral,"Filtro do STF para temas constitucionais — Fonte: CF/88, art. 102, §3º."
-res judicata,"Termo em latim equivalente a coisa julgada — Fonte: STJ."
-sentença,"Ato do juiz que encerra o processo com ou sem mérito — Fonte: CPC, art. 203."
-sucumbência,"Ônus imposto ao vencido para pagar custas e honorários — Fonte: CPC."
-tutela de urgência,"Medida liminar concedida para evitar dano grave — Fonte: CPC, art. 300."
-usucapião,"Aquisição de propriedade pela posse prolongada — Fonte: Código Civil."
+termo	definicao
+ação	Direito de provocar a jurisdição para tutela de um direito — Fonte: Glossário Jurídico da Câmara dos Deputados.
+agravo	Recurso utilizado contra decisões interlocutórias — Fonte: STJ (Glossário Jurídico).
+amparo legal	Base normativa que sustenta o pedido jurídico — Fonte: CNJ (Glossário).
+apelação	Recurso cabível contra sentença — Fonte: CPC, art. 1.009.
+arquivamento	Encerramento do processo sem julgamento de mérito — Fonte: CNJ.
+coisa julgada	Torna imutável e indiscutível a decisão judicial — Fonte: CPC, art. 502.
+competência	Poder do órgão jurisdicional para julgar determinada causa — Fonte: CF/88 e CPC.
+constitucionalidade	Conformidade de um ato com a Constituição — Fonte: Glossário STJ.
+contraditório	Direito das partes de participarem do processo — Fonte: CF/88, art. 5º, LV.
+decisão interlocutória	Ato judicial que resolve questão incidental — Fonte: STJ (Glossário Jurídico).
+denúncia	Peça acusatória que inicia a ação penal pública — Fonte: CPP.
+despacho	Ato judicial de mero expediente — Fonte: CNJ.
+dolo	Vontade consciente de produzir resultado ilícito — Fonte: Código Penal.
+erro de direito	Erro na interpretação ou aplicação da lei — Fonte: STJ.
+exceção	Meio de defesa processual sem análise de mérito — Fonte: Glossário STJ.
+fato gerador	Situação que origina a obrigação tributária — Fonte: Código Tributário Nacional.
+foro	Local onde deve tramitar e ser julgada a causa — Fonte: Glossário Jurídico da Câmara.
+habeas corpus	Ação constitucional para proteger a liberdade — Fonte: CF/88, art. 5º, LXVIII.
+honorários	Verba paga ao advogado pela prestação de serviços — Fonte: Estatuto da OAB.
+impugnação	Oposição formal a pedido ou argumento da parte contrária — Fonte: CNJ.
+inconstitucionalidade	Incompatibilidade entre norma e Constituição Federal — Fonte: STF.
+jurisprudência	Decisões reiteradas dos tribunais sobre um mesmo tema — Fonte: STJ.
+litisconsórcio	Pluralidade de partes no polo ativo ou passivo — Fonte: CPC, art. 113.
+mandado de segurança	Ação para proteger direito líquido e certo — Fonte: CF/88.
+nulidade	Defeito que invalida ato processual — Fonte: CPC.
+ônus da prova	Encargo de provar alegações próprias — Fonte: CPC, art. 373.
+petição inicial	Peça que inaugura o processo judicial — Fonte: CPC, art. 319.
+prescrição	Perda do direito de exigir judicialmente um direito — Fonte: Código Civil.
+prevenção	Critério que fixa competência por distribuição anterior — Fonte: CPC.
+recurso	Instrumento para revisar decisão judicial — Fonte: CPC.
+repercussão geral	Filtro do STF para temas constitucionais — Fonte: CF/88, art. 102, §3º.
+res judicata	Termo em latim equivalente a coisa julgada — Fonte: STJ.
+sentença	Ato do juiz que encerra o processo com ou sem mérito — Fonte: CPC, art. 203.
+sucumbência	Ônus imposto ao vencido para pagar custas e honorários — Fonte: CPC.
+tutela de urgência	Medida liminar concedida para evitar dano grave — Fonte: CPC, art. 300.
+usucapião	Aquisição de propriedade pela posse prolongada — Fonte: Código Civil.
