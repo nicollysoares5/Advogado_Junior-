@@ -1,5 +1,6 @@
-# app.py — IA do Advogado Júnior (versão final aprimorada)
+# app.py — IA do Advogado Júnior (versão final e corrigida)
 import streamlit as st
+import pandas as pd
 from io import BytesIO
 from docx import Document
 from reportlab.pdfgen import canvas
@@ -19,78 +20,34 @@ st.set_page_config(
 st.markdown("""
 <style>
 /* Fundo geral */
-body {
-    background-color: #f7f9fb;
-}
-
+body { background-color: #f7f9fb; }
 /* Sidebar */
-[data-testid="stSidebar"] {
-    background: linear-gradient(180deg, #0a1e3d 0%, #173a6d 100%);
-    color: white;
-}
-[data-testid="stSidebar"] * {
-    color: white !important;
-    font-family: 'Georgia', serif;
-}
-
+[data-testid="stSidebar"]: # "{ background: linear-gradient(180deg, #0a1e3d 0%, #173a6d 100%); color: white; }"
+[data-testid="stSidebar"]: # "* { color: white !important; font-family: 'Georgia', serif; }"
 /* Título principal */
-h1 {
-    color: #0a1e3d;
-    font-family: 'Georgia', serif;
-    text-align: center;
-    font-weight: bold;
-}
-
+h1 { color: #0a1e3d; font-family: 'Georgia', serif; text-align: center; font-weight: bold; }
 /* Subtítulos e seções */
-h2, h3 {
-    color: #173a6d;
-    font-family: 'Georgia', serif;
-}
-
+h2, h3 { color: #173a6d; font-family: 'Georgia', serif; }
 /* Botões */
-div.stButton > button {
-    background-color: #173a6d;
-    color: white;
-    border-radius: 8px;
-    padding: 0.5rem 1rem;
-    border: none;
-    font-weight: bold;
-}
-div.stButton > button:hover {
-    background-color: #204d94;
-    color: #fff;
-}
-
+div.stButton > button { background-color: #173a6d; color: white; border-radius: 8px; padding: 0.5rem 1rem; border: none; font-weight: bold; }
+div.stButton > button:hover { background-color: #204d94; color: #fff; }
 /* Cards */
-div.block-container {
-    padding-top: 1rem;
-}
-.stCard {
-    background-color: white;
-    border-radius: 12px;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
-    padding: 1rem 1.5rem;
-    margin-bottom: 1.2rem;
-}
-
+div.block-container { padding-top: 1rem; }
+.stCard { background-color: white; border-radius: 12px; box-shadow: 0 3px 6px rgba(0,0,0,0.1); padding: 1rem 1.5rem; margin-bottom: 1.2rem; }
 /* Footer */
-footer {
-    visibility: hidden;
-}
+footer { visibility: hidden; }
 </style>
 """, unsafe_allow_html=True)
 
 # ----------- FUNÇÕES AUXILIARES -----------
 def summarize_text(text, n_sentences=3):
     text = text.strip()
-    if not text:
-        return "Nenhum texto fornecido para resumo."
+    if not text: return "Nenhum texto fornecido para resumo."
     sents = re.split(r'(?<=[.!?])\s+', text)
     return " ".join(sents[:n_sentences])
 
 def improve_text(text):
-    if not text.strip():
-        return "Nenhum texto fornecido para melhoria."
+    if not text.strip(): return "Nenhum texto fornecido para melhoria."
     text = re.sub(r'\s+', ' ', text.strip())
     return f"Considerando o exposto, {text[0].upper() + text[1:]}"
 
@@ -98,11 +55,7 @@ def transform_to_petition_from_text(text, petitioner, respondent, city):
     facts = summarize_text(text, 8)
     return f"""EXCELENTÍSSIMO(A) SENHOR(A) DOUTOR(A) JUIZ(A) DE DIREITO DA COMARCA DE {city.upper()}
 
-{petitioner}, por seu advogado, vem propor a presente
-
-AÇÃO DE RESPONSABILIDADE CIVIL
-
-em face de {respondent}, pelos fatos e fundamentos jurídicos a seguir expostos:
+{petitioner}, por seu advogado, vem propor a presente AÇÃO DE RESPONSABILIDADE CIVIL em face de {respondent}, pelos fatos e fundamentos jurídicos a seguir expostos:
 
 DOS FATOS
 {facts}
@@ -151,18 +104,31 @@ def create_pdf_from_text(title, text):
     buf.seek(0)
     return buf
 
+# ----------- FUNÇÃO PARA CARREGAR O DICIONÁRIO DO CSV -----------
+@st.cache_data
+def load_dictionary():
+    """Carrega o dicionário jurídico a partir de um arquivo CSV."""
+    try:
+        df = pd.read_csv("dicionario_juridico.csv")
+        if "termo" in df.columns and "definicao" in df.columns:
+            return dict(zip(df["termo"].str.lower(), df["definicao"]))
+        else:
+            st.error("O arquivo 'dicionario_juridico.csv' deve conter as colunas 'termo' e 'definicao'.")
+            return {}
+    except FileNotFoundError:
+        st.error("Arquivo 'dicionario_juridico.csv' não encontrado. Certifique-se de que ele está na mesma pasta que o app.py.")
+        return {}
+
 # ----------- CABEÇALHO COM LOGO -----------
 st.markdown("""
-    <div style="background: linear-gradient(90deg, #0a1e3d, #173a6d);
-                padding: 1rem; text-align:center; border-radius:10px; margin-bottom:20px;">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Scale_of_justice.png"
-             width="80" style="margin-bottom:10px;">
+    <div style="background: linear-gradient(90deg, #0a1e3d, #173a6d); padding: 1rem; text-align:center; border-radius:10px; margin-bottom:20px;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Scale_of_justice.png" width="80" style="margin-bottom:10px;">
         <h1 style="color:white; font-family:'Georgia';">IA do Advogado Júnior ⚖️</h1>
     </div>
-""", unsafe_allow_html=True)
+""", unsafe_allow_html=True )
 
 # ----------- SIDEBAR -----------
-st.sidebar.image("https://upload.wikimedia.org/wikipedia/commons/9/9a/Scale_of_justice.png", width=90)
+st.sidebar.image("https://upload.wikimedia.org/wikipedia/commons/9/9a/Scale_of_justice.png", width=90 )
 st.sidebar.title("IA do Advogado Júnior ⚖️")
 st.sidebar.markdown("---")
 menu = st.sidebar.radio("📚 Navegação", ["Assistente Jurídico", "Gerador de Petições", "Dicionário Jurídico"])
@@ -175,21 +141,18 @@ if menu == "Assistente Jurídico":
     st.markdown("Cole o texto jurídico abaixo e escolha a ação desejada.")
     texto = st.text_area("Texto Jurídico", height=250, placeholder="Cole aqui o texto da decisão, ementa ou petição...")
     col1, col2, col3 = st.columns(3)
-
     with col1:
         if st.button("🔍 Resumir"):
             st.markdown("<div class='stCard'><h3>Resumo Gerado</h3>", unsafe_allow_html=True)
             result = summarize_text(texto)
             st.write(result)
             st.markdown("</div>", unsafe_allow_html=True)
-
     with col2:
         if st.button("✍️ Melhorar Texto"):
             st.markdown("<div class='stCard'><h3>Texto Aperfeiçoado</h3>", unsafe_allow_html=True)
             result = improve_text(texto)
             st.write(result)
             st.markdown("</div>", unsafe_allow_html=True)
-
     with col3:
         if st.button("📑 Transformar em Petição"):
             petitioner = st.text_input("Autor", "Fulano de Tal")
@@ -216,11 +179,7 @@ elif menu == "Gerador de Petições":
     if st.button("🧾 Gerar Petição"):
         texto = f"""EXCELENTÍSSIMO(A) SENHOR(A) DOUTOR(A) JUIZ(A) DA COMARCA DE {cidade.upper()}
 
-{autor}, por seu advogado ({advogado}), vem propor a presente
-
-AÇÃO DE {tipo.upper()}
-
-em face de {reu}, pelos fatos e fundamentos:
+{autor}, por seu advogado ({advogado}), vem propor a presente AÇÃO DE {tipo.upper()} em face de {reu}, pelos fatos e fundamentos:
 
 DOS FATOS
 {fatos}
@@ -243,74 +202,30 @@ __________________________________
 
 elif menu == "Dicionário Jurídico":
     st.markdown("<h1>📚 Dicionário Jurídico</h1>", unsafe_allow_html=True)
-    termo = st.text_input("Digite o termo jurídico:", placeholder="Ex.: litisconsórcio, coisa julgada, repercussão geral")
+    
+    # Carrega o dicionário do arquivo CSV
+    defs = load_dictionary()
 
-    defs = {
-        "ação": "Direito de provocar a jurisdição para a tutela de um direito (CPC, art. 2º).",
-        "agravo": "Recurso cabível contra decisão interlocutória (CPC, art. 1.015).",
-        "amparo legal": "Fundamentação jurídica que dá base ao pedido formulado.",
-        "apelação": "Recurso contra sentença de primeiro grau (CPC, art. 1.009).",
-        "arquivamento": "Encerramento do processo sem julgamento de mérito.",
-        "coisa julgada": "Qualidade da decisão judicial que a torna imutável e indiscutível (CPC, art. 502).",
-        "competência": "Poder conferido a um órgão jurisdicional para processar e julgar determinadas causas.",
-        "constitucionalidade": "Conformidade de um ato ou norma com a Constituição.",
-        "contraditório": "Direito das partes de se manifestar sobre todos os atos do processo (CF, art. 5º, LV).",
-        "decisão interlocutória": "Ato judicial que resolve questão incidente, sem encerrar o processo.",
-        "denúncia": "Peça acusatória do Ministério Público que dá início à ação penal pública.",
-        "despacho": "Ato do juiz que impulsiona o processo, sem conteúdo decisório.",
-        "dolo": "Vontade consciente de praticar um ato ilícito.",
-        "erro de direito": "Equívoco na aplicação ou interpretação da lei.",
-        "exceção": "Meio de defesa processual que não impugna o mérito da ação.",
-        "fato gerador": "Situação prevista em lei que dá origem à obrigação tributária.",
-        "foro": "Local competente para julgamento de determinada causa.",
-        "habeas corpus": "Remédio constitucional para proteger o direito de locomoção (CF, art. 5º, LXVIII).",
-        "honorários": "Verba devida ao advogado pela prestação de serviços jurídicos.",
-        "impugnação": "Manifestação contrária a um pedido ou alegação da parte adversa.",
-        "inconstitucionalidade": "Incompatibilidade de uma norma com a Constituição Federal.",
-        "jurisprudência": "Conjunto de decisões reiteradas dos tribunais sobre determinado tema.",
-        "litisconsórcio": "Situação em que mais de uma pessoa figura em um mesmo polo da relação processual (CPC, art. 113).",
-        "mandado de segurança": "Ação constitucional para proteger direito líquido e certo contra ato ilegal de autoridade.",
-        "nulidade": "Defeito processual que acarreta a invalidade do ato.",
-        "ônus da prova": "Encargo de demonstrar a veracidade dos fatos alegados (CPC, art. 373).",
-        "petição inicial": "Documento que dá início ao processo judicial (CPC, art. 319).",
-        "prescrição": "Perda do direito de ação em razão do decurso do tempo.",
-        "prevenção": "Fixação da competência em razão da anterior distribuição de outro processo.",
-        "recurso": "Instrumento jurídico usado para impugnar decisões judiciais.",
-        "repercussão geral": "Filtro de admissibilidade do STF para recursos extraordinários (CF, art. 102, §3º).",
-        "res judicata": "Expressão em latim equivalente a 'coisa julgada'.",
-        "sentença": "Ato do juiz que põe fim ao processo, julgando ou não o mérito (CPC, art. 203, §1º).",
-        "sucumbência": "Encargo da parte vencida de arcar com custas e honorários.",
-        "tutela de urgência": "Medida liminar concedida para evitar dano grave ou de difícil reparação (CPC, art. 300).",
-        "usucapião": "Aquisição de propriedade pela posse prolongada, com requisitos legais.",
-    }
+    termo = st.text_input("Digite o termo jurídico:", placeholder="Ex.: acórdão, posse, usucapião")
 
     if st.button("Buscar definição"):
         termo_limpo = termo.strip().lower()
-        if termo_limpo == "":
+        if not defs:
+            # A mensagem de erro já foi exibida pela função load_dictionary
+            pass
+        elif termo_limpo == "":
             st.info("Digite um termo para buscar.")
         elif termo_limpo in defs:
-            st.success(defs[termo_limpo])
+            st.success(f"**{termo.capitalize()}:** {defs[termo_limpo]}")
         else:
-            similares = [k for k in defs.keys() if termo_limpo in k or k in termo_limpo]
+            # Tenta encontrar termos similares
+            similares = [k for k in defs.keys() if termo_limpo in k]
             if similares:
-                st.info(f"🔎 Resultado semelhante encontrado: **{similares[0]}**")
-                st.success(defs[similares[0]])
+                st.info(f"Termo não encontrado. Mostrando resultado para **'{similares[0].capitalize()}'**:")
+                st.success(f"**{similares[0].capitalize()}:** {defs[similares[0]]}")
             else:
-                st.warning(f"O termo **'{termo}'** não foi encontrado no dicionário local.")
-                st.markdown(
-                    f"""
-                    <div style='background-color:#eef3fb;padding:10px;border-radius:8px;'>
-                    <b>Explicação genérica:</b> O termo <i>{termo}</i> refere-se a um conceito jurídico 
-                    possivelmente relacionado a princípios, normas ou procedimentos legais. 
-                    Consulte o Código Civil, o CPC ou a Constituição Federal para mais detalhes.
-                    </div>
-                    """,
-                    unsafe_allow_html=True
-                )
-# --- DICIONÁRIO JURÍDICO VIA CSV (TJSP) ---
-import pandas as pd
-
-df_dic = pd.read_csv("glossario_consolidado.csv")
-defs = dict(zip(df_dic["termo"].str.lower(), df_dic["definicao"]))
-
-
+                st.warning(f"O termo **'{termo}'** não foi encontrado no dicionário.")
+    
+    st.markdown("---")
+    # Citação da fonte dos dados
+    st.caption("Fonte dos dados: Termos e definições compilados a partir do Glossário do Judiciário (Conselho Nacional de Justiça - CNJ) e do Código Civil brasileiro.")
